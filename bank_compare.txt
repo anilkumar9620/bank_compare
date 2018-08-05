@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+  float amount,emiA,emiB;
+  //n is the number of slabs
+  int n1,n2,i,j;
+  float time,intrest_rate;
+  float a,b,c;
+  printf("enter the loan amount :\n");
+  scanf("%f\n",&amount);
+  printf("enter the time required \n");
+  scanf("%f\n",&time);
+  printf("enter the number of slabs for bank A:");
+  scanf("%d",&n1);
+  printf("enter the number of slabs for bank B");
+  scanf("%d",&n2);
+  emiA=0;emiB=0;
+  for(i=0;i<n1;i++)
+  {
+    printf("enter the rate of intrest for bank A");
+    scanf("%f",&intrest_rate);
+    a=amount*intrest_rate;
+    b=pow((1+intrest_rate),time);
+    c=1/b;
+    emiA=emiA+a/(1-c);
+  }
+  for(j=0;j<n2;j++)
+  {
+    printf("enter the rate of intrest for bank B");
+    scanf("%f",&intrest_rate);
+    a=amount*intrest_rate;
+    b=pow((1+intrest_rate),time);
+    c=1/b;
+    emiB=emiB+a/(1-c);
+  }
+  if(emiA>emiB)
+  {
+    printf("bank B is the best option");
+  }else
+  {
+    printf("bank A is the best option");
+  }
+}
